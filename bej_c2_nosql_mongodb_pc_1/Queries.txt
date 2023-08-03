@@ -1,0 +1,23 @@
+use address_db
+
+db.AddressDetails.insertMany([
+	{street:"Main Street", city:"Rochester", pin:812001},
+	{street:"Broadway", city:"New York", pin:812002},
+	{street:"7th Street", city:"Rochester", pin:812003},
+	{street:"4th Street", city:"Rochester", pin:812004},
+	{street:"5th Avenue", city:"New York", pin:812005},
+	{street:"Oakhill", city:"Kingston", pin:812006},
+	{street:"Concession Road", city:"Kingston", pin:812007}
+	]);
+	
+db.AddressDetails.find().pretty()	
+
+db.AddressDetails.find({city:"Rochester"});
+
+db.AddressDetails.find({city:"New York"}).count();
+
+db.AddressDetails.find({city:{$in: ["New York","Rochester","Kingston"]}});
+
+address_db> db.AddressDetails.deleteMany({city:"New York"});
+
+	
